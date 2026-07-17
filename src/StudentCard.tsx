@@ -55,9 +55,7 @@ export default function StudentCard({ student, onDelta, controlsDisabled = false
 
       <div className="stage-label">{creature?.name ?? "Egg"}</div>
 
-      {creature ? (
-        <div className="progress-label hatched-label">Hatched forever</div>
-      ) : (
+      {!creature && (
         <>
           <div className="progress-track">
             <motion.div

@@ -326,8 +326,6 @@ header p {
   margin-top: 0.15rem;
 }
 
-.hatched-label { margin-top: 0.75rem; }
-
 .point-controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
