@@ -12,9 +12,10 @@ interface Props {
   onDelta?: (delta: number) => void;
   controlsDisabled?: boolean;
   hatchAt: number;
+  spriteTheme: string;
 }
 
-export default function StudentCard({ student, onDelta, controlsDisabled = false, hatchAt }: Props) {
+export default function StudentCard({ student, onDelta, controlsDisabled = false, hatchAt, spriteTheme }: Props) {
   const [hatching, setHatching] = useState(false);
   const [displaySpecies, setDisplaySpecies] = useState(student.species);
   const previousSpecies = useRef(student.species);
@@ -51,7 +52,7 @@ export default function StudentCard({ student, onDelta, controlsDisabled = false
         <div className="points">{student.points}</div>
       </div>
 
-      <Pet student={displayStudent} hatching={hatching} hatchAt={hatchAt} />
+      <Pet student={displayStudent} hatching={hatching} hatchAt={hatchAt} spriteTheme={spriteTheme} />
 
       <div className="stage-label">{creature?.name ?? "Egg"}</div>
 

@@ -44,6 +44,17 @@ export const CREATURES: Creature[] = CREATURE_NAMES.map((name) => ({
   },
 }));
 
+/**
+ * Sprite path for a creature under a theme. Classic keeps the original flat
+ * /sprites folder; every other theme is a subfolder holding strips with the
+ * same filenames, so shipping a new theme is dropping a folder of files and
+ * adding its name to appConfig/hatchlings in Firestore.
+ */
+export function themedSpriteSrc(creature: Creature, theme: string): string {
+  if (theme === "Classic") return creature.sprite.src;
+  return creature.sprite.src.replace("/sprites/", `/sprites/${encodeURIComponent(theme)}/`);
+}
+
 export function rollCreature(): Creature {
   return CREATURES[Math.floor(Math.random() * CREATURES.length)];
 }

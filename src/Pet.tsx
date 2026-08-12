@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
-import { creatureById, hatchProgress, stageFor, type Student } from "./types";
+import { creatureById, hatchProgress, stageFor, themedSpriteSrc, type Student } from "./types";
 
 interface PetProps {
   student: Student;
   hatching: boolean;
   hatchAt: number;
+  spriteTheme: string;
 }
 
-export default function Pet({ student, hatching, hatchAt }: PetProps) {
+export default function Pet({ student, hatching, hatchAt, spriteTheme }: PetProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const stageIsVisible = useInView(stageRef, { amount: 0.01 });
   const creature = creatureById(student.species);
@@ -39,7 +40,8 @@ export default function Pet({ student, hatching, hatchAt }: PetProps) {
     );
   }
 
-  const { src, frames, fps } = creature.sprite;
+  const { frames, fps } = creature.sprite;
+  const src = themedSpriteSrc(creature, spriteTheme);
   return (
     <div className="pet-stage">
       <HatchBurst active={hatching} />

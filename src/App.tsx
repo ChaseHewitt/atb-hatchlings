@@ -4,6 +4,7 @@ import { useRewardStudents } from "./useRewardStudents";
 import { useSchoolYears } from "./useSchoolYears";
 import { useWorkspace } from "./useWorkspace";
 import { useHatchThreshold } from "./useHatchThreshold";
+import { useHatchlingsTheme } from "./useHatchlingsTheme";
 import { updateReward } from "./updateReward";
 import type { Student } from "./types";
 import "./App.css";
@@ -27,6 +28,7 @@ export default function App() {
 function WorkspaceDisplay({ workspaceId }: { workspaceId: string }) {
   const schoolYears = useSchoolYears(workspaceId);
   const hatchAt = useHatchThreshold(workspaceId);
+  const spriteTheme = useHatchlingsTheme(workspaceId);
   const rewardStudents = useRewardStudents(workspaceId, schoolYears.selectedYear?.id ?? null);
   const [isUpdatingPoints, setIsUpdatingPoints] = useState(false);
   const [pointsError, setPointsError] = useState<string | null>(null);
@@ -118,6 +120,7 @@ function WorkspaceDisplay({ workspaceId }: { workspaceId: string }) {
                 key={`${schoolYears.selectedYear?.id}:${student.id}`}
                 student={student}
                 hatchAt={hatchAt}
+                spriteTheme={spriteTheme}
                 onDelta={(delta) => void adjustStudents([student], delta)}
                 controlsDisabled={isUpdatingPoints}
               />
