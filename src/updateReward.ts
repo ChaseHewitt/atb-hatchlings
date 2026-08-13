@@ -1,5 +1,5 @@
 import type { Student } from "./types";
-import { rollCreature } from "./types";
+import { rollFromRoster, type Roster } from "./roster";
 
 export async function updateReward(
   workspaceId: string,
@@ -7,6 +7,7 @@ export async function updateReward(
   student: Student,
   delta: number,
   hatchAt: number,
+  roster: Roster,
 ): Promise<void> {
   const [{ db }, { doc, runTransaction, serverTimestamp }] = await Promise.all([
     import("./firestore"),
@@ -32,7 +33,7 @@ export async function updateReward(
     const species = typeof storedSpecies === "string" && storedSpecies
       ? storedSpecies
       : points >= hatchAt
-        ? rollCreature().id
+        ? rollFromRoster(roster).id
         : null;
 
     transaction.set(rewardRef, {

@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
-import { creatureById, hatchProgress, stageFor, themedSpriteSrc, type Student } from "./types";
+import { hatchProgress, stageFor, type Student } from "./types";
+import { rosterCreatureById, spriteSrc, type Roster } from "./roster";
 
 interface PetProps {
   student: Student;
   hatching: boolean;
   hatchAt: number;
-  spriteTheme: string;
+  roster: Roster;
 }
 
-export default function Pet({ student, hatching, hatchAt, spriteTheme }: PetProps) {
+export default function Pet({ student, hatching, hatchAt, roster }: PetProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const stageIsVisible = useInView(stageRef, { amount: 0.01 });
-  const creature = creatureById(student.species);
+  const resolved = rosterCreatureById(roster, student.species);
+  const creature = resolved?.creature ?? null;
 
   if (stageFor(student) === "egg" || !creature) {
     const ratio = hatchProgress(student, hatchAt);
@@ -40,8 +42,9 @@ export default function Pet({ student, hatching, hatchAt, spriteTheme }: PetProp
     );
   }
 
-  const { frames, fps } = creature.sprite;
-  const src = themedSpriteSrc(creature, spriteTheme);
+  // Pets hatched under an earlier theme resolve back to Classic, so the art
+  // comes from the theme that actually owns the creature, not the active one.
+  const src = spriteSrc(resolved!.theme, creature);
   return (
     <div className="pet-stage">
       <HatchBurst active={hatching} />
@@ -53,7 +56,11 @@ export default function Pet({ student, hatching, hatchAt, spriteTheme }: PetProp
         transition={{ type: "spring", stiffness: 260, damping: 13 }}
         title={creature.name}
       >
-        <Sprite src={src} frames={frames} fps={fps} />
+        {creature.format === "strip" ? (
+          <Sprite src={src} frames={creature.frames ?? 25} fps={creature.fps ?? 12} />
+        ) : (
+          <img className="pet-image" src={src} alt={creature.name} draggable={false} />
+        )}
       </motion.div>
     </div>
   );

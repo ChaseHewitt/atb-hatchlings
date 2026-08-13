@@ -38,20 +38,11 @@ export const CREATURES: Creature[] = CREATURE_NAMES.map((name) => ({
   id: name.toLowerCase(),
   name,
   sprite: {
-    src: `/sprites/${name}_idle_v1_norife_original_strip.png`,
+    src: `/sprites/Classic/${name}_idle_v1_norife_original_strip.png`,
     frames: 25,
     fps: 12,
   },
 }));
-
-/**
- * Sprite path for a creature under a theme: every theme, Classic included, is
- * a /sprites/<theme>/ folder holding identically named strips. Shipping a new
- * theme is dropping in a folder and listing its name in appConfig/hatchlings.
- */
-export function themedSpriteSrc(creature: Creature, theme: string): string {
-  return creature.sprite.src.replace("/sprites/", `/sprites/${encodeURIComponent(theme)}/`);
-}
 
 export function rollCreature(): Creature {
   return CREATURES[Math.floor(Math.random() * CREATURES.length)];

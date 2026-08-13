@@ -408,6 +408,18 @@ header p {
   animation-timing-function: steps(24);
   animation-iteration-count: infinite;
 }
+/* Gif themes: the file animates itself, so it just needs the sprite box. */
+.pet-image {
+  position: relative;
+  z-index: 1;
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  image-rendering: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 .sprite:not(.sprite-paused) { will-change: background-position; }
 .sprite-paused { animation-play-state: paused; }
 @keyframes sprite-play {

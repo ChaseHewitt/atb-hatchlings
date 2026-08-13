@@ -5,6 +5,7 @@ import { useSchoolYears } from "./useSchoolYears";
 import { useWorkspace } from "./useWorkspace";
 import { useHatchThreshold } from "./useHatchThreshold";
 import { useHatchlingsTheme } from "./useHatchlingsTheme";
+import { useRoster } from "./roster";
 import { updateReward } from "./updateReward";
 import type { Student } from "./types";
 import "./App.css";
@@ -29,6 +30,7 @@ function WorkspaceDisplay({ workspaceId }: { workspaceId: string }) {
   const schoolYears = useSchoolYears(workspaceId);
   const hatchAt = useHatchThreshold(workspaceId);
   const spriteTheme = useHatchlingsTheme(workspaceId);
+  const roster = useRoster(spriteTheme);
   const rewardStudents = useRewardStudents(workspaceId, schoolYears.selectedYear?.id ?? null);
   const [isUpdatingPoints, setIsUpdatingPoints] = useState(false);
   const [pointsError, setPointsError] = useState<string | null>(null);
@@ -41,7 +43,7 @@ function WorkspaceDisplay({ workspaceId }: { workspaceId: string }) {
     setPointsError(null);
     try {
       await Promise.all(
-        students.map((student) => updateReward(workspaceId, yearId, student, delta, hatchAt)),
+        students.map((student) => updateReward(workspaceId, yearId, student, delta, hatchAt, roster)),
       );
     } catch (error) {
       setPointsError(error instanceof Error ? error.message : "Could not update points.");
@@ -120,7 +122,7 @@ function WorkspaceDisplay({ workspaceId }: { workspaceId: string }) {
                 key={`${schoolYears.selectedYear?.id}:${student.id}`}
                 student={student}
                 hatchAt={hatchAt}
-                spriteTheme={spriteTheme}
+                roster={roster}
                 onDelta={(delta) => void adjustStudents([student], delta)}
                 controlsDisabled={isUpdatingPoints}
               />
