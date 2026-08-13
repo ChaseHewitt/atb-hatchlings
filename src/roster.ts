@@ -1,15 +1,14 @@
 // Per-theme creature rosters.
 //
-// Each theme folder carries /sprites/<Theme>/manifest.json describing its own
-// creatures — names, files, and how to animate them — so a theme can be a
-// completely different character set, in gif or strip form, shipped by
-// dropping a folder on the site. Classic's manifest is generated from the
-// built-in catalog, which also serves as the fallback when a manifest is
-// missing or unreachable.
+// Rosters live in Firestore at appConfig/hatchlings/themes/<Theme>, published
+// from a sprite folder by scripts/publish-theme.mjs. That document is the one
+// source of truth: this site renders from it and the iOS app rolls a species
+// from it. Keeping a second copy in either codebase is exactly what let the
+// app hatch Classic pets while the site was showing another theme.
 //
-// Already-hatched pets keep their stored species id even after the school
-// switches themes: lookups fall back to the Classic catalog, so old pets keep
-// rendering with their original art until a reset hands out fresh eggs.
+// Pets store the theme they hatched under, so a pet keeps its own art after
+// the school switches themes. Pets predating that field are Classic, which is
+// what the fallback covers.
 
 import { useEffect, useState } from "react";
 import { CREATURES } from "./types";
@@ -68,14 +67,21 @@ function validRoster(theme: string, data: unknown): Roster | null {
   return creatures.length > 0 ? { theme, creatures } : null;
 }
 
+const cache = new Map<string, Roster>();
+
 export async function loadRoster(theme: string): Promise<Roster> {
-  if (theme === "Classic") return classicRoster;
+  const cached = cache.get(theme);
+  if (cached) return cached;
+
   try {
-    const response = await fetch(`/sprites/${encodeURIComponent(theme)}/manifest.json`, {
-      cache: "no-cache",
-    });
-    if (!response.ok) return classicRoster;
-    return validRoster(theme, await response.json()) ?? classicRoster;
+    const [{ db }, { doc, getDoc }] = await Promise.all([
+      import("./firestore"),
+      import("firebase/firestore"),
+    ]);
+    const snapshot = await getDoc(doc(db, "appConfig", "hatchlings", "themes", theme));
+    const roster = validRoster(theme, snapshot.data()) ?? classicRoster;
+    cache.set(theme, roster);
+    return roster;
   } catch {
     return classicRoster;
   }
@@ -103,8 +109,9 @@ export function rollFromRoster(roster: Roster): RosterCreature {
 }
 
 /**
- * Finds a stored species id: the active roster first, then Classic, so pets
- * hatched under an earlier theme keep their original creature and art.
+ * Resolves a pet to the creature it actually hatched as. `owningRoster` is the
+ * roster for the pet's own speciesTheme, which may differ from the active one;
+ * Classic is the last resort for pets stored before themes existed.
  */
 export function rosterCreatureById(
   roster: Roster,
@@ -115,4 +122,28 @@ export function rosterCreatureById(
   if (active) return { creature: active, theme: roster.theme };
   const classic = classicRoster.creatures.find((creature) => creature.id === id);
   return classic ? { creature: classic, theme: "Classic" } : null;
+}
+
+/**
+ * Roster a pet should be rendered from: its own hatch-time theme when that is
+ * not the active one, so switching themes never restyles existing pets.
+ */
+export function useOwningRoster(active: Roster, speciesTheme: string | null): Roster {
+  const [owning, setOwning] = useState<Roster>(active);
+
+  useEffect(() => {
+    if (!speciesTheme || speciesTheme === active.theme) {
+      setOwning(active);
+      return;
+    }
+    let cancelled = false;
+    void loadRoster(speciesTheme).then((loaded) => {
+      if (!cancelled) setOwning(loaded);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [active, speciesTheme]);
+
+  return owning;
 }

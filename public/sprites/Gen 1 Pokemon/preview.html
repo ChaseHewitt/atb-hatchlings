@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Theme preview</title>
+<style>
+  body { margin:0; padding:24px; background:#14151a; color:#e8e9ee;
+         font:14px/1.4 -apple-system, system-ui, sans-serif; }
+  h1 { font-size:16px; font-weight:600; margin:0 0 4px; }
+  p  { margin:0 0 20px; color:#9a9cab; font-size:13px; }
+  .grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); }
+  .cell { background:#1e2028; border-radius:12px; padding:12px 8px; text-align:center; }
+  /* Same 104px box the app renders pets in. */
+  .cell img { width:104px; height:104px; object-fit:contain; display:block; margin:0 auto 6px; }
+  .cell span { font-size:12px; color:#c3c5d1; word-break:break-word; }
+  .missing { outline:1px solid #b4433d; }
+</style>
+<h1>Theme preview</h1>
+<p id="meta">Loading manifest…</p>
+<div class="grid" id="grid"></div>
+<script>
+  fetch("./manifest.json", { cache: "no-cache" })
+    .then((r) => r.json())
+    .then((data) => {
+      const creatures = data.creatures ?? [];
+      document.getElementById("meta").textContent =
+        `${data.theme ?? "?"} — ${creatures.length} creatures, shown at the app's 104px size`;
+      document.getElementById("grid").innerHTML = creatures.map((c) =>
+        `<div class="cell"><img src="./${encodeURIComponent(c.file)}" alt="${c.name}"
+           onerror="this.parentElement.classList.add('missing')"><span>${c.name}</span></div>`
+      ).join("");
+    })
+    .catch((e) => { document.getElementById("meta").textContent = "Couldn't read manifest.json: " + e; });
+</script>

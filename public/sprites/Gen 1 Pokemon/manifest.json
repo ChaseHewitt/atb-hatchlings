@@ -1,0 +1,905 @@
+{
+  "theme": "Gen 1 Pokemon",
+  "creatures": [
+    {
+      "id": "abra",
+      "name": "Abra",
+      "file": "Abra.gif",
+      "format": "gif"
+    },
+    {
+      "id": "aerodactyl",
+      "name": "Aerodactyl",
+      "file": "Aerodactyl.gif",
+      "format": "gif"
+    },
+    {
+      "id": "alakazam",
+      "name": "Alakazam",
+      "file": "Alakazam.gif",
+      "format": "gif"
+    },
+    {
+      "id": "arbok",
+      "name": "Arbok",
+      "file": "Arbok.gif",
+      "format": "gif"
+    },
+    {
+      "id": "arcanine",
+      "name": "Arcanine",
+      "file": "Arcanine.gif",
+      "format": "gif"
+    },
+    {
+      "id": "articuno",
+      "name": "Articuno",
+      "file": "Articuno.gif",
+      "format": "gif"
+    },
+    {
+      "id": "beedrill",
+      "name": "Beedrill",
+      "file": "Beedrill.gif",
+      "format": "gif"
+    },
+    {
+      "id": "bellsprout",
+      "name": "Bellsprout",
+      "file": "Bellsprout.gif",
+      "format": "gif"
+    },
+    {
+      "id": "blastoise",
+      "name": "Blastoise",
+      "file": "Blastoise.gif",
+      "format": "gif"
+    },
+    {
+      "id": "bulbasaur",
+      "name": "Bulbasaur",
+      "file": "Bulbasaur.gif",
+      "format": "gif"
+    },
+    {
+      "id": "butterfree",
+      "name": "Butterfree",
+      "file": "Butterfree.gif",
+      "format": "gif"
+    },
+    {
+      "id": "caterpie",
+      "name": "Caterpie",
+      "file": "Caterpie.gif",
+      "format": "gif"
+    },
+    {
+      "id": "chansey",
+      "name": "Chansey",
+      "file": "Chansey.gif",
+      "format": "gif"
+    },
+    {
+      "id": "charizard",
+      "name": "Charizard",
+      "file": "Charizard.gif",
+      "format": "gif"
+    },
+    {
+      "id": "charmander",
+      "name": "Charmander",
+      "file": "Charmander.gif",
+      "format": "gif"
+    },
+    {
+      "id": "charmeleon",
+      "name": "Charmeleon",
+      "file": "Charmeleon.gif",
+      "format": "gif"
+    },
+    {
+      "id": "clefable",
+      "name": "Clefable",
+      "file": "Clefable.gif",
+      "format": "gif"
+    },
+    {
+      "id": "clefairy",
+      "name": "Clefairy",
+      "file": "Clefairy.gif",
+      "format": "gif"
+    },
+    {
+      "id": "cloyster",
+      "name": "Cloyster",
+      "file": "Cloyster.gif",
+      "format": "gif"
+    },
+    {
+      "id": "cubone",
+      "name": "Cubone",
+      "file": "Cubone.gif",
+      "format": "gif"
+    },
+    {
+      "id": "dewgong",
+      "name": "Dewgong",
+      "file": "Dewgong.gif",
+      "format": "gif"
+    },
+    {
+      "id": "diglett",
+      "name": "Diglett",
+      "file": "Diglett.gif",
+      "format": "gif"
+    },
+    {
+      "id": "ditto",
+      "name": "Ditto",
+      "file": "Ditto.gif",
+      "format": "gif"
+    },
+    {
+      "id": "dodrio",
+      "name": "Dodrio",
+      "file": "Dodrio.gif",
+      "format": "gif"
+    },
+    {
+      "id": "doduo",
+      "name": "Doduo",
+      "file": "Doduo.gif",
+      "format": "gif"
+    },
+    {
+      "id": "dragonair",
+      "name": "Dragonair",
+      "file": "Dragonair.gif",
+      "format": "gif"
+    },
+    {
+      "id": "dragonite",
+      "name": "Dragonite",
+      "file": "Dragonite.gif",
+      "format": "gif"
+    },
+    {
+      "id": "dratini",
+      "name": "Dratini",
+      "file": "Dratini.gif",
+      "format": "gif"
+    },
+    {
+      "id": "drowzee",
+      "name": "Drowzee",
+      "file": "Drowzee.gif",
+      "format": "gif"
+    },
+    {
+      "id": "dugtrio",
+      "name": "Dugtrio",
+      "file": "Dugtrio.gif",
+      "format": "gif"
+    },
+    {
+      "id": "eevee",
+      "name": "Eevee",
+      "file": "Eevee.gif",
+      "format": "gif"
+    },
+    {
+      "id": "ekans",
+      "name": "Ekans",
+      "file": "Ekans.gif",
+      "format": "gif"
+    },
+    {
+      "id": "electabuzz",
+      "name": "Electabuzz",
+      "file": "Electabuzz.gif",
+      "format": "gif"
+    },
+    {
+      "id": "electrode",
+      "name": "Electrode",
+      "file": "Electrode.gif",
+      "format": "gif"
+    },
+    {
+      "id": "exeggcute",
+      "name": "Exeggcute",
+      "file": "Exeggcute.gif",
+      "format": "gif"
+    },
+    {
+      "id": "exeggutor",
+      "name": "Exeggutor",
+      "file": "Exeggutor.gif",
+      "format": "gif"
+    },
+    {
+      "id": "farfetch-d",
+      "name": "Farfetch'd",
+      "file": "Farfetch'd.gif",
+      "format": "gif"
+    },
+    {
+      "id": "fearow",
+      "name": "Fearow",
+      "file": "Fearow.gif",
+      "format": "gif"
+    },
+    {
+      "id": "flareon",
+      "name": "Flareon",
+      "file": "Flareon.gif",
+      "format": "gif"
+    },
+    {
+      "id": "gastly",
+      "name": "Gastly",
+      "file": "Gastly.gif",
+      "format": "gif"
+    },
+    {
+      "id": "gengar",
+      "name": "Gengar",
+      "file": "Gengar.gif",
+      "format": "gif"
+    },
+    {
+      "id": "geodude",
+      "name": "Geodude",
+      "file": "Geodude.gif",
+      "format": "gif"
+    },
+    {
+      "id": "gloom",
+      "name": "Gloom",
+      "file": "Gloom.gif",
+      "format": "gif"
+    },
+    {
+      "id": "golbat",
+      "name": "Golbat",
+      "file": "Golbat.gif",
+      "format": "gif"
+    },
+    {
+      "id": "goldeen",
+      "name": "Goldeen",
+      "file": "Goldeen.gif",
+      "format": "gif"
+    },
+    {
+      "id": "golduck",
+      "name": "Golduck",
+      "file": "Golduck.gif",
+      "format": "gif"
+    },
+    {
+      "id": "golem",
+      "name": "Golem",
+      "file": "Golem.gif",
+      "format": "gif"
+    },
+    {
+      "id": "graveler",
+      "name": "Graveler",
+      "file": "Graveler.gif",
+      "format": "gif"
+    },
+    {
+      "id": "grimer",
+      "name": "Grimer",
+      "file": "Grimer.gif",
+      "format": "gif"
+    },
+    {
+      "id": "growlithe",
+      "name": "Growlithe",
+      "file": "Growlithe.gif",
+      "format": "gif"
+    },
+    {
+      "id": "gyarados",
+      "name": "Gyarados",
+      "file": "Gyarados.gif",
+      "format": "gif"
+    },
+    {
+      "id": "haunter",
+      "name": "Haunter",
+      "file": "Haunter.gif",
+      "format": "gif"
+    },
+    {
+      "id": "hitmonchan",
+      "name": "Hitmonchan",
+      "file": "Hitmonchan.gif",
+      "format": "gif"
+    },
+    {
+      "id": "hitmonlee",
+      "name": "Hitmonlee",
+      "file": "Hitmonlee.gif",
+      "format": "gif"
+    },
+    {
+      "id": "horsea",
+      "name": "Horsea",
+      "file": "Horsea.gif",
+      "format": "gif"
+    },
+    {
+      "id": "hypno",
+      "name": "Hypno",
+      "file": "Hypno.gif",
+      "format": "gif"
+    },
+    {
+      "id": "ivysaur",
+      "name": "Ivysaur",
+      "file": "Ivysaur.gif",
+      "format": "gif"
+    },
+    {
+      "id": "jigglypuff",
+      "name": "Jigglypuff",
+      "file": "Jigglypuff.gif",
+      "format": "gif"
+    },
+    {
+      "id": "jolteon",
+      "name": "Jolteon",
+      "file": "Jolteon.gif",
+      "format": "gif"
+    },
+    {
+      "id": "jynx",
+      "name": "Jynx",
+      "file": "Jynx.gif",
+      "format": "gif"
+    },
+    {
+      "id": "kabuto",
+      "name": "Kabuto",
+      "file": "Kabuto.gif",
+      "format": "gif"
+    },
+    {
+      "id": "kabutops",
+      "name": "Kabutops",
+      "file": "Kabutops.gif",
+      "format": "gif"
+    },
+    {
+      "id": "kadabra",
+      "name": "Kadabra",
+      "file": "Kadabra.gif",
+      "format": "gif"
+    },
+    {
+      "id": "kakuna",
+      "name": "Kakuna",
+      "file": "Kakuna.gif",
+      "format": "gif"
+    },
+    {
+      "id": "kangaskhan",
+      "name": "Kangaskhan",
+      "file": "Kangaskhan.gif",
+      "format": "gif"
+    },
+    {
+      "id": "kingler",
+      "name": "Kingler",
+      "file": "Kingler.gif",
+      "format": "gif"
+    },
+    {
+      "id": "koffing",
+      "name": "Koffing",
+      "file": "Koffing.gif",
+      "format": "gif"
+    },
+    {
+      "id": "krabby",
+      "name": "Krabby",
+      "file": "Krabby.gif",
+      "format": "gif"
+    },
+    {
+      "id": "lapras",
+      "name": "Lapras",
+      "file": "Lapras.gif",
+      "format": "gif"
+    },
+    {
+      "id": "lickitung",
+      "name": "Lickitung",
+      "file": "Lickitung.gif",
+      "format": "gif"
+    },
+    {
+      "id": "machamp",
+      "name": "Machamp",
+      "file": "Machamp.gif",
+      "format": "gif"
+    },
+    {
+      "id": "machoke",
+      "name": "Machoke",
+      "file": "Machoke.gif",
+      "format": "gif"
+    },
+    {
+      "id": "machop",
+      "name": "Machop",
+      "file": "Machop.gif",
+      "format": "gif"
+    },
+    {
+      "id": "magikarp",
+      "name": "Magikarp",
+      "file": "Magikarp.gif",
+      "format": "gif"
+    },
+    {
+      "id": "magmar",
+      "name": "Magmar",
+      "file": "Magmar.gif",
+      "format": "gif"
+    },
+    {
+      "id": "magnemite",
+      "name": "Magnemite",
+      "file": "Magnemite.gif",
+      "format": "gif"
+    },
+    {
+      "id": "magneton",
+      "name": "Magneton",
+      "file": "Magneton.gif",
+      "format": "gif"
+    },
+    {
+      "id": "mankey",
+      "name": "Mankey",
+      "file": "Mankey.gif",
+      "format": "gif"
+    },
+    {
+      "id": "marowak",
+      "name": "Marowak",
+      "file": "Marowak.gif",
+      "format": "gif"
+    },
+    {
+      "id": "meowth",
+      "name": "Meowth",
+      "file": "Meowth.gif",
+      "format": "gif"
+    },
+    {
+      "id": "metapod",
+      "name": "Metapod",
+      "file": "Metapod.gif",
+      "format": "gif"
+    },
+    {
+      "id": "mew",
+      "name": "Mew",
+      "file": "Mew.gif",
+      "format": "gif"
+    },
+    {
+      "id": "mewtwo",
+      "name": "Mewtwo",
+      "file": "Mewtwo.gif",
+      "format": "gif"
+    },
+    {
+      "id": "moltres",
+      "name": "Moltres",
+      "file": "Moltres.gif",
+      "format": "gif"
+    },
+    {
+      "id": "mr-mime",
+      "name": "Mr. Mime",
+      "file": "Mr._Mime.gif",
+      "format": "gif"
+    },
+    {
+      "id": "muk",
+      "name": "Muk",
+      "file": "Muk.gif",
+      "format": "gif"
+    },
+    {
+      "id": "nidoking",
+      "name": "Nidoking",
+      "file": "Nidoking.gif",
+      "format": "gif"
+    },
+    {
+      "id": "nidoqueen",
+      "name": "Nidoqueen",
+      "file": "Nidoqueen.gif",
+      "format": "gif"
+    },
+    {
+      "id": "nidoran-male",
+      "name": "Nidoran Male",
+      "file": "Nidoran_Male.gif",
+      "format": "gif"
+    },
+    {
+      "id": "nidorina",
+      "name": "Nidorina",
+      "file": "Nidorina.gif",
+      "format": "gif"
+    },
+    {
+      "id": "nidorino",
+      "name": "Nidorino",
+      "file": "Nidorino.gif",
+      "format": "gif"
+    },
+    {
+      "id": "ninetales",
+      "name": "Ninetales",
+      "file": "Ninetales.gif",
+      "format": "gif"
+    },
+    {
+      "id": "oddish",
+      "name": "Oddish",
+      "file": "Oddish.gif",
+      "format": "gif"
+    },
+    {
+      "id": "omanyte",
+      "name": "Omanyte",
+      "file": "Omanyte.gif",
+      "format": "gif"
+    },
+    {
+      "id": "omastar",
+      "name": "Omastar",
+      "file": "Omastar.gif",
+      "format": "gif"
+    },
+    {
+      "id": "onix",
+      "name": "Onix",
+      "file": "Onix.gif",
+      "format": "gif"
+    },
+    {
+      "id": "paras",
+      "name": "Paras",
+      "file": "Paras.gif",
+      "format": "gif"
+    },
+    {
+      "id": "parasect",
+      "name": "Parasect",
+      "file": "Parasect.gif",
+      "format": "gif"
+    },
+    {
+      "id": "persian",
+      "name": "Persian",
+      "file": "Persian.gif",
+      "format": "gif"
+    },
+    {
+      "id": "pidgeot",
+      "name": "Pidgeot",
+      "file": "Pidgeot.gif",
+      "format": "gif"
+    },
+    {
+      "id": "pidgeotto",
+      "name": "Pidgeotto",
+      "file": "Pidgeotto.gif",
+      "format": "gif"
+    },
+    {
+      "id": "pidgey",
+      "name": "Pidgey",
+      "file": "Pidgey.gif",
+      "format": "gif"
+    },
+    {
+      "id": "pikachu",
+      "name": "Pikachu",
+      "file": "Pikachu.gif",
+      "format": "gif"
+    },
+    {
+      "id": "pinsir",
+      "name": "Pinsir",
+      "file": "Pinsir.gif",
+      "format": "gif"
+    },
+    {
+      "id": "poliwag",
+      "name": "Poliwag",
+      "file": "Poliwag.gif",
+      "format": "gif"
+    },
+    {
+      "id": "poliwhirl",
+      "name": "Poliwhirl",
+      "file": "Poliwhirl.gif",
+      "format": "gif"
+    },
+    {
+      "id": "poliwrath",
+      "name": "Poliwrath",
+      "file": "Poliwrath.gif",
+      "format": "gif"
+    },
+    {
+      "id": "ponyta",
+      "name": "Ponyta",
+      "file": "Ponyta.gif",
+      "format": "gif"
+    },
+    {
+      "id": "porygon",
+      "name": "Porygon",
+      "file": "Porygon.gif",
+      "format": "gif"
+    },
+    {
+      "id": "primeape",
+      "name": "Primeape",
+      "file": "Primeape.gif",
+      "format": "gif"
+    },
+    {
+      "id": "psyduck",
+      "name": "Psyduck",
+      "file": "Psyduck.gif",
+      "format": "gif"
+    },
+    {
+      "id": "raichu",
+      "name": "Raichu",
+      "file": "Raichu.gif",
+      "format": "gif"
+    },
+    {
+      "id": "rapidash",
+      "name": "Rapidash",
+      "file": "Rapidash.gif",
+      "format": "gif"
+    },
+    {
+      "id": "raticate",
+      "name": "Raticate",
+      "file": "Raticate.gif",
+      "format": "gif"
+    },
+    {
+      "id": "rattata",
+      "name": "Rattata",
+      "file": "Rattata.gif",
+      "format": "gif"
+    },
+    {
+      "id": "rhydon",
+      "name": "Rhydon",
+      "file": "Rhydon.gif",
+      "format": "gif"
+    },
+    {
+      "id": "rhyhorn",
+      "name": "Rhyhorn",
+      "file": "Rhyhorn.gif",
+      "format": "gif"
+    },
+    {
+      "id": "sandshrew",
+      "name": "Sandshrew",
+      "file": "Sandshrew.gif",
+      "format": "gif"
+    },
+    {
+      "id": "sandslash",
+      "name": "Sandslash",
+      "file": "Sandslash.gif",
+      "format": "gif"
+    },
+    {
+      "id": "scyther",
+      "name": "Scyther",
+      "file": "Scyther.gif",
+      "format": "gif"
+    },
+    {
+      "id": "seadra",
+      "name": "Seadra",
+      "file": "Seadra.gif",
+      "format": "gif"
+    },
+    {
+      "id": "seaking",
+      "name": "Seaking",
+      "file": "Seaking.gif",
+      "format": "gif"
+    },
+    {
+      "id": "seel",
+      "name": "Seel",
+      "file": "Seel.gif",
+      "format": "gif"
+    },
+    {
+      "id": "shellder",
+      "name": "Shellder",
+      "file": "Shellder.gif",
+      "format": "gif"
+    },
+    {
+      "id": "slowbro",
+      "name": "Slowbro",
+      "file": "Slowbro.gif",
+      "format": "gif"
+    },
+    {
+      "id": "slowpoke",
+      "name": "Slowpoke",
+      "file": "Slowpoke.gif",
+      "format": "gif"
+    },
+    {
+      "id": "snorlax",
+      "name": "Snorlax",
+      "file": "Snorlax.gif",
+      "format": "gif"
+    },
+    {
+      "id": "spearow",
+      "name": "Spearow",
+      "file": "Spearow.gif",
+      "format": "gif"
+    },
+    {
+      "id": "squirtle",
+      "name": "Squirtle",
+      "file": "Squirtle.gif",
+      "format": "gif"
+    },
+    {
+      "id": "starmie",
+      "name": "Starmie",
+      "file": "Starmie.gif",
+      "format": "gif"
+    },
+    {
+      "id": "staryu",
+      "name": "Staryu",
+      "file": "Staryu.gif",
+      "format": "gif"
+    },
+    {
+      "id": "tangela",
+      "name": "Tangela",
+      "file": "Tangela.gif",
+      "format": "gif"
+    },
+    {
+      "id": "tauros",
+      "name": "Tauros",
+      "file": "Tauros.gif",
+      "format": "gif"
+    },
+    {
+      "id": "tentacool",
+      "name": "Tentacool",
+      "file": "Tentacool.gif",
+      "format": "gif"
+    },
+    {
+      "id": "tentacruel",
+      "name": "Tentacruel",
+      "file": "Tentacruel.gif",
+      "format": "gif"
+    },
+    {
+      "id": "vaporeon",
+      "name": "Vaporeon",
+      "file": "Vaporeon.gif",
+      "format": "gif"
+    },
+    {
+      "id": "venomoth",
+      "name": "Venomoth",
+      "file": "Venomoth.gif",
+      "format": "gif"
+    },
+    {
+      "id": "venonat",
+      "name": "Venonat",
+      "file": "Venonat.gif",
+      "format": "gif"
+    },
+    {
+      "id": "venusaur",
+      "name": "Venusaur",
+      "file": "Venusaur.gif",
+      "format": "gif"
+    },
+    {
+      "id": "victreebel",
+      "name": "Victreebel",
+      "file": "Victreebel.gif",
+      "format": "gif"
+    },
+    {
+      "id": "vileplume",
+      "name": "Vileplume",
+      "file": "Vileplume.gif",
+      "format": "gif"
+    },
+    {
+      "id": "voltorb",
+      "name": "Voltorb",
+      "file": "Voltorb.gif",
+      "format": "gif"
+    },
+    {
+      "id": "vulpix",
+      "name": "Vulpix",
+      "file": "Vulpix.gif",
+      "format": "gif"
+    },
+    {
+      "id": "wartortle",
+      "name": "Wartortle",
+      "file": "Wartortle.gif",
+      "format": "gif"
+    },
+    {
+      "id": "weedle",
+      "name": "Weedle",
+      "file": "Weedle.gif",
+      "format": "gif"
+    },
+    {
+      "id": "weepinbell",
+      "name": "Weepinbell",
+      "file": "Weepinbell.gif",
+      "format": "gif"
+    },
+    {
+      "id": "weezing",
+      "name": "Weezing",
+      "file": "Weezing.gif",
+      "format": "gif"
+    },
+    {
+      "id": "wigglytuff",
+      "name": "Wigglytuff",
+      "file": "Wigglytuff.gif",
+      "format": "gif"
+    },
+    {
+      "id": "zapdos",
+      "name": "Zapdos",
+      "file": "Zapdos.gif",
+      "format": "gif"
+    },
+    {
+      "id": "zubat",
+      "name": "Zubat",
+      "file": "Zubat.gif",
+      "format": "gif"
+    }
+  ]
+}

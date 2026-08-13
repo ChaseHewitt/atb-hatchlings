@@ -30,10 +30,19 @@ export async function updateReward(
     const points = Math.max(0, currentPoints + delta);
     const peak = Math.max(nonnegativeNumber(current?.peak), points);
     const storedSpecies = current?.species;
-    const species = typeof storedSpecies === "string" && storedSpecies
+    const alreadyHatched = typeof storedSpecies === "string" && storedSpecies !== "";
+    const hatchingNow = !alreadyHatched && points >= hatchAt;
+    const species = alreadyHatched
       ? storedSpecies
-      : points >= hatchAt
+      : hatchingNow
         ? rollFromRoster(roster).id
+        : null;
+    // Recorded once, at hatch, so the pet keeps its own art after the school
+    // switches themes. Existing pets keep whatever is already stored.
+    const speciesTheme = alreadyHatched
+      ? (current?.speciesTheme ?? null)
+      : hatchingNow
+        ? roster.theme
         : null;
 
     transaction.set(rewardRef, {
@@ -43,6 +52,7 @@ export async function updateReward(
       points,
       peak,
       species,
+      speciesTheme,
       updatedAt: serverTimestamp(),
     }, { merge: true });
   });

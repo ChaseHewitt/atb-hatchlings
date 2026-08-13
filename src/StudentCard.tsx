@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Pet from "./Pet";
 import { hatchProgress, type Student } from "./types";
-import { rosterCreatureById, type Roster } from "./roster";
+import { rosterCreatureById, useOwningRoster, type Roster } from "./roster";
 
 interface Props {
   student: Student;
@@ -17,7 +17,8 @@ export default function StudentCard({ student, onDelta, controlsDisabled = false
   const [displaySpecies, setDisplaySpecies] = useState(student.species);
   const previousSpecies = useRef(student.species);
   const ratio = hatchProgress(student, hatchAt);
-  const creature = rosterCreatureById(roster, displaySpecies)?.creature ?? null;
+  const owningRoster = useOwningRoster(roster, student.speciesTheme);
+  const creature = rosterCreatureById(owningRoster, displaySpecies)?.creature ?? null;
 
   useEffect(() => {
     const before = previousSpecies.current;
@@ -49,7 +50,7 @@ export default function StudentCard({ student, onDelta, controlsDisabled = false
         <div className="points">{student.points}</div>
       </div>
 
-      <Pet student={displayStudent} hatching={hatching} hatchAt={hatchAt} roster={roster} />
+      <Pet student={displayStudent} hatching={hatching} hatchAt={hatchAt} roster={owningRoster} />
 
       <div className="stage-label">{creature?.name ?? "Egg"}</div>
 

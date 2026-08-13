@@ -10,6 +10,7 @@ export interface Student {
   points: number;
   peak: number;
   species: string | null; // creature id, rolled once at hatch
+  speciesTheme: string | null; // theme that owned the roll; null = Classic
 }
 
 export type PetStage = "egg" | "hatched";

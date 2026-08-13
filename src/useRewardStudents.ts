@@ -13,6 +13,7 @@ interface RewardState {
   points: number;
   peak: number;
   species: string | null;
+  speciesTheme: string | null;
 }
 
 export interface RewardStudentsState {
@@ -93,6 +94,7 @@ export function useRewardStudents(workspaceId: string, yearId: string | null): R
       points: reward?.points ?? 0,
       peak: reward?.peak ?? 0,
       species: reward?.species ?? null,
+      speciesTheme: reward?.speciesTheme ?? null,
     };
   }), [rewards, roster]);
 
@@ -123,6 +125,9 @@ function parseReward(document: QueryDocumentSnapshot<DocumentData>): RewardState
     points,
     peak,
     species: typeof data.species === "string" && data.species ? data.species : null,
+    // Absent on pets hatched before themes existed; those are all Classic.
+    speciesTheme:
+      typeof data.speciesTheme === "string" && data.speciesTheme ? data.speciesTheme : null,
   };
 }
 
