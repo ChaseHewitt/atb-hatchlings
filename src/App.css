@@ -399,7 +399,9 @@ header p {
   image-rendering: auto;
   contain: strict;
   animation-name: sprite-play;
-  animation-timing-function: steps(24);
+  /* Step count comes from the frame count inline — it was hardcoded to the
+     Classic strips' 25 frames, so a 4-frame strip slid smoothly instead of
+     snapping frame to frame. */
   animation-iteration-count: infinite;
 }
 /* Gif themes: the file animates itself, so it just needs the sprite box. */

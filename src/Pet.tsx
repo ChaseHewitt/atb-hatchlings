@@ -108,8 +108,12 @@ function Sprite({ src, frames, fps }: { src: string; frames: number; fps: number
         // that browsers discard silently — no console error, just no sprite.
         backgroundImage: `url("${src}")`,
         animationDuration: `${frames / fps}s`,
+        // One discrete step per frame, travelling the full strip width so every
+        // frame gets an equal slice — including the last one, which a
+        // frames-1 travel never reached.
+        animationTimingFunction: `steps(${frames})`,
         ["--frames" as string]: frames,
-        ["--sprite-end" as string]: `${-(frames - 1) * 104}px`,
+        ["--sprite-end" as string]: `${-frames * 104}px`,
       }}
     />
   );
