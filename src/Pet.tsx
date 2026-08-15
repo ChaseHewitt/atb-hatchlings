@@ -103,7 +103,10 @@ function Sprite({ src, frames, fps }: { src: string; frames: number; fps: number
       ref={ref}
       className={`sprite${shouldAnimate ? "" : " sprite-paused"}`}
       style={{
-        backgroundImage: `url(${src})`,
+        // Quoted: an unquoted CSS url() cannot contain parentheses, so a theme
+        // folder like "Animals (Christmas)" produced an invalid declaration
+        // that browsers discard silently — no console error, just no sprite.
+        backgroundImage: `url("${src}")`,
         animationDuration: `${frames / fps}s`,
         ["--frames" as string]: frames,
         ["--sprite-end" as string]: `${-(frames - 1) * 104}px`,
