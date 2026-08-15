@@ -1,13 +1,11 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { FirebaseError } from "firebase/app";
 import {
-  GoogleAuthProvider,
   browserLocalPersistence,
   onAuthStateChanged,
   sendPasswordResetEmail,
   setPersistence,
   signInWithEmailAndPassword,
-  signInWithPopup,
   signOut,
   type User,
 } from "firebase/auth";
@@ -107,21 +105,6 @@ function Login() {
     }
   }
 
-  async function googleLogin() {
-    setBusy(true);
-    setMessage("");
-    try {
-      await setPersistence(auth, browserLocalPersistence);
-      const provider = new GoogleAuthProvider();
-      provider.setCustomParameters({ prompt: "select_account" });
-      await signInWithPopup(auth, provider);
-    } catch (error) {
-      setMessage(authMessage(error));
-    } finally {
-      setBusy(false);
-    }
-  }
-
   async function resetPassword() {
     if (!identifier.trim()) {
       setMessage("Enter your username or email first, then choose Forgot password.");
@@ -185,12 +168,6 @@ function Login() {
           Forgot password?
         </button>
 
-        <div className="login-divider"><span>or</span></div>
-
-        <button className="google-login" type="button" onClick={() => void googleLogin()} disabled={busy}>
-          Continue with Google
-        </button>
-
         {message && <div className="auth-message" role="status" aria-live="polite">{message}</div>}
       </section>
     </main>
@@ -205,8 +182,6 @@ function authMessage(error: unknown): string {
     case "auth/invalid-email": return "Enter a valid username or email address.";
     case "auth/user-disabled": return "This account has been disabled.";
     case "auth/too-many-requests": return "Too many attempts. Wait a moment and try again.";
-    case "auth/popup-closed-by-user": return "Google sign-in was cancelled.";
-    case "auth/popup-blocked": return "Allow pop-ups for this site, then try Google again.";
     case "auth/network-request-failed": return "Could not reach Firebase. Check the internet connection.";
     default: return "Sign-in failed. Please try again.";
   }

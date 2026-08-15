@@ -55,8 +55,7 @@
   outline: none;
 }
 .login-card input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(110, 168, 255, 0.16); }
-.login-primary,
-.google-login {
+.login-primary {
   min-height: 46px;
   border: 0;
   border-radius: 11px;
@@ -65,9 +64,7 @@
   cursor: pointer;
 }
 .login-primary { margin-top: 0.8rem; background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #0f1220; }
-.google-login { width: 100%; background: #f7f8ff; color: #20243a; }
 .login-primary:disabled,
-.google-login:disabled,
 .forgot-password:disabled { cursor: wait; opacity: 0.65; }
 .forgot-password {
   display: block;
@@ -78,9 +75,6 @@
   color: var(--accent);
   cursor: pointer;
 }
-.login-divider { display: flex; align-items: center; gap: 0.8rem; margin: 1rem 0; color: var(--muted); font-size: 0.8rem; }
-.login-divider::before,
-.login-divider::after { content: ""; height: 1px; flex: 1; background: rgba(255,255,255,0.1); }
 .auth-message { margin-top: 1rem; color: #ffd18b; text-align: center; font-size: 0.88rem; }
 .auth-session {
   max-width: 1100px;
