@@ -1,0 +1,85 @@
+{
+  "theme": "Christmas",
+  "creatures": [
+    {
+      "id": "frostbell",
+      "name": "Frostbell",
+      "file": "christmas_arctic_fox.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "gifthop",
+      "name": "Gifthop",
+      "file": "christmas_bunny.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "tinselpup",
+      "name": "Tinselpup",
+      "file": "christmas_corgi.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "jinglechick",
+      "name": "Jinglechick",
+      "file": "christmas_duckling.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "gingersnap",
+      "name": "Gingersnap",
+      "file": "christmas_frog.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "cookiecheek",
+      "name": "Cookiecheek",
+      "file": "christmas_hamster.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "pepperquill",
+      "name": "Pepperquill",
+      "file": "christmas_hedgehog.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "cocoabelle",
+      "name": "Cocoabelle",
+      "file": "christmas_moose.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "stockingtail",
+      "name": "Stockingtail",
+      "file": "christmas_otter.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "id": "bellwhisker",
+      "name": "Bellwhisker",
+      "file": "christmas_tuxedo_cat.png",
+      "format": "strip",
+      "frames": 4,
+      "fps": 6
+    }
+  ]
+}

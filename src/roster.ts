@@ -147,3 +147,52 @@ export function useOwningRoster(active: Roster, speciesTheme: string | null): Ro
 
   return owning;
 }
+
+/**
+ * Chooses which creature each hatching student gets, preferring ones nobody in
+ * the school year has yet.
+ *
+ * Rolling independently made duplicates the norm rather than the exception:
+ * with 25 creatures and 10 students the birthday problem puts at least one
+ * collision at ~88%, and past a roster's worth of students some creatures never
+ * appear at all while others turn up five times. Handing out unused creatures
+ * first means every creature shows up before any repeats.
+ *
+ * Assigning the whole batch in one pass also fixes the "add 1 to everyone"
+ * case, where ten hatches fired at once would otherwise each pick from the same
+ * unused pool and collide with each other.
+ */
+export function planHatchSpecies(
+  candidates: { id: string; points: number; species: string | null }[],
+  delta: number,
+  hatchAt: number,
+  roster: Roster,
+  allStudents: { species: string | null }[],
+): Map<string, string> {
+  const plan = new Map<string, string>();
+  const hatching = candidates.filter(
+    (student) => !student.species && student.points + delta >= hatchAt,
+  );
+  if (hatching.length === 0 || roster.creatures.length === 0) return plan;
+
+  const taken = new Set(
+    allStudents.map((student) => student.species).filter((id): id is string => Boolean(id)),
+  );
+  const unused = shuffle(roster.creatures.filter((creature) => !taken.has(creature.id)));
+
+  for (const student of hatching) {
+    const next = unused.pop() ?? roster.creatures[Math.floor(Math.random() * roster.creatures.length)];
+    plan.set(student.id, next.id);
+  }
+  return plan;
+}
+
+/** Fisher-Yates, so "unused first" doesn't mean "always in roster order". */
+function shuffle<T>(items: T[]): T[] {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}

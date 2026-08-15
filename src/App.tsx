@@ -5,7 +5,7 @@ import { useSchoolYears } from "./useSchoolYears";
 import { useWorkspace } from "./useWorkspace";
 import { useHatchThreshold } from "./useHatchThreshold";
 import { useHatchlingsTheme } from "./useHatchlingsTheme";
-import { useRoster } from "./roster";
+import { planHatchSpecies, useRoster } from "./roster";
 import { updateReward } from "./updateReward";
 import type { Student } from "./types";
 import "./App.css";
@@ -42,8 +42,13 @@ function WorkspaceDisplay({ workspaceId }: { workspaceId: string }) {
     setIsUpdatingPoints(true);
     setPointsError(null);
     try {
+      // Planned for the batch as a whole so simultaneous hatches can't land on
+      // the same creature, and so unused creatures go out before repeats.
+      const plan = planHatchSpecies(students, delta, hatchAt, roster, rewardStudents.students);
       await Promise.all(
-        students.map((student) => updateReward(workspaceId, yearId, student, delta, hatchAt, roster)),
+        students.map((student) =>
+          updateReward(workspaceId, yearId, student, delta, hatchAt, roster, plan.get(student.id)),
+        ),
       );
     } catch (error) {
       setPointsError(error instanceof Error ? error.message : "Could not update points.");

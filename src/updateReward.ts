@@ -8,6 +8,8 @@ export async function updateReward(
   delta: number,
   hatchAt: number,
   roster: Roster,
+  /** Creature chosen for this student by planHatchSpecies, when it is hatching. */
+  preferredSpecies?: string,
 ): Promise<void> {
   const [{ db }, { doc, runTransaction, serverTimestamp }] = await Promise.all([
     import("./firestore"),
@@ -35,7 +37,7 @@ export async function updateReward(
     const species = alreadyHatched
       ? storedSpecies
       : hatchingNow
-        ? rollFromRoster(roster).id
+        ? (preferredSpecies ?? rollFromRoster(roster).id)
         : null;
     // Recorded once, at hatch, so the pet keeps its own art after the school
     // switches themes. Existing pets keep whatever is already stored.
