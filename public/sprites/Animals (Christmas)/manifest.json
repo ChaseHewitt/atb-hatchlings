@@ -1,397 +1,502 @@
 {
-  "theme": "Animals (Christmas)",
-  "creatures": [
+  "schema": "christmas-animal-sprites/combined-25frame-v2",
+  "format": "strip",
+  "frames": 25,
+  "frameWidth": 104,
+  "frameHeight": 104,
+  "fps": 12,
+  "loop": true,
+  "spriteCount": 49,
+  "sprites": [
     {
-      "id": "tinselfluff",
-      "name": "Tinselfluff",
-      "file": "Tinselfluff.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "frostbell",
-      "name": "Frostbell",
-      "file": "Frostbell.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "gingerstripe",
-      "name": "Gingerstripe",
-      "file": "Gingerstripe.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "yulegnaw",
-      "name": "Yulegnaw",
-      "file": "Yulegnaw.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "jinglehorn",
-      "name": "Jinglehorn",
-      "file": "Jinglehorn.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "baublehop",
-      "name": "Baublehop",
-      "file": "Baublehop.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "cozycap",
-      "name": "Cozycap",
-      "file": "Cozycap.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "ponchopuff",
-      "name": "Ponchopuff",
-      "file": "Ponchopuff.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "tinselpup",
-      "name": "Tinselpup",
-      "file": "Tinselpup.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "jinglechick",
-      "name": "Jinglechick",
-      "file": "Jinglechick.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "cocoaslink",
-      "name": "Cocoaslink",
-      "file": "Cocoaslink.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "twinkleleg",
-      "name": "Twinkleleg",
-      "file": "Twinkleleg.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "giftbrush",
-      "name": "Giftbrush",
-      "file": "Giftbrush.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "gingersnap",
-      "name": "Gingersnap",
-      "file": "Gingersnap.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "startop",
-      "name": "Startop",
-      "file": "Startop.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "cookiecheek",
-      "name": "Cookiecheek",
-      "file": "Cookiecheek.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "pepperquill",
-      "name": "Pepperquill",
-      "file": "Pepperquill.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "drumbelly",
-      "name": "Drumbelly",
-      "file": "Drumbelly.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "snowbundle",
-      "name": "Snowbundle",
-      "file": "Snowbundle.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "mistlepaw",
-      "name": "Mistlepaw",
-      "file": "Mistlepaw.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "peekabox",
-      "name": "Peekabox",
-      "file": "Peekabox.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "cocoabelle",
-      "name": "Cocoabelle",
-      "file": "Cocoabelle.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "chimeantler",
-      "name": "Chimeantler",
-      "file": "Chimeantler.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "crumbwhisker",
-      "name": "Crumbwhisker",
-      "file": "Crumbwhisker.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "baubletangle",
-      "name": "Baubletangle",
-      "file": "Baubletangle.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "stockingtail",
-      "name": "Stockingtail",
-      "file": "Stockingtail.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "snowbamboo",
-      "name": "Snowbamboo",
-      "file": "Snowbamboo.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "wreathwing",
-      "name": "Wreathwing",
-      "file": "Wreathwing.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "tuxfrost",
-      "name": "Tuxfrost",
-      "file": "Tuxfrost.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "mugwaddle",
-      "name": "Mugwaddle",
-      "file": "Mugwaddle.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "snoutmint",
-      "name": "Snoutmint",
-      "file": "Snoutmint.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "driftpaw",
-      "name": "Driftpaw",
-      "file": "Driftpaw.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "snowglobe",
-      "name": "Snowglobe",
-      "file": "Snowglobe.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "mistlemask",
-      "name": "Mistlemask",
-      "file": "Mistlemask.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "emberpaw",
-      "name": "Emberpaw",
-      "file": "Emberpaw.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "glowring",
-      "name": "Glowring",
-      "file": "Glowring.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "sleighbell",
-      "name": "Sleighbell",
-      "file": "Sleighbell.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "hollyflit",
-      "name": "Hollyflit",
-      "file": "Hollyflit.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "snowflipper",
-      "name": "Snowflipper",
-      "file": "Snowflipper.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "woollywrap",
-      "name": "Woollywrap",
-      "file": "Woollywrap.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "frostripe",
-      "name": "Frostripe",
-      "file": "Frostripe.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "danglesock",
-      "name": "Danglesock",
-      "file": "Danglesock.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "snowhoot",
-      "name": "Snowhoot",
-      "file": "Snowhoot.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "lanternwing",
-      "name": "Lanternwing",
-      "file": "Lanternwing.png",
-      "format": "strip",
-      "frames": 4,
-      "fps": 6
-    },
-    {
-      "id": "acornbell",
       "name": "Acornbell",
       "file": "Acornbell.png",
       "format": "strip",
-      "frames": 4,
-      "fps": 6
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
     },
     {
-      "id": "candycub",
-      "name": "Candycub",
-      "file": "Candycub.png",
+      "name": "Baublehop",
+      "file": "Baublehop.png",
       "format": "strip",
-      "frames": 4,
-      "fps": 6
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
     },
     {
-      "id": "shellchime",
-      "name": "Shellchime",
-      "file": "Shellchime.png",
+      "name": "Baubletangle",
+      "file": "Baubletangle.png",
       "format": "strip",
-      "frames": 4,
-      "fps": 6
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
     },
     {
-      "id": "bellwhisker",
       "name": "Bellwhisker",
       "file": "Bellwhisker.png",
       "format": "strip",
-      "frames": 4,
-      "fps": 6
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
     },
     {
-      "id": "candystripe",
+      "name": "Candycub",
+      "file": "Candycub.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
       "name": "Candystripe",
       "file": "Candystripe.png",
       "format": "strip",
-      "frames": 4,
-      "fps": 6
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Chimeantler",
+      "file": "Chimeantler.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Cocoabelle",
+      "file": "Cocoabelle.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Cocoaslink",
+      "file": "Cocoaslink.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Cookiecheek",
+      "file": "Cookiecheek.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Cozycap",
+      "file": "Cozycap.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Crumbwhisker",
+      "file": "Crumbwhisker.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Danglesock",
+      "file": "Danglesock.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Driftpaw",
+      "file": "Driftpaw.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Drumbelly",
+      "file": "Drumbelly.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Emberpaw",
+      "file": "Emberpaw.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Frostbell",
+      "file": "Frostbell.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Frostripe",
+      "file": "Frostripe.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Giftbrush",
+      "file": "Giftbrush.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Gingersnap",
+      "file": "Gingersnap.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Gingerstripe",
+      "file": "Gingerstripe.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Glowring",
+      "file": "Glowring.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Hollyflit",
+      "file": "Hollyflit.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Jinglechick",
+      "file": "Jinglechick.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Jinglehorn",
+      "file": "Jinglehorn.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Lanternwing",
+      "file": "Lanternwing.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Mistlemask",
+      "file": "Mistlemask.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Mistlepaw",
+      "file": "Mistlepaw.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Mugwaddle",
+      "file": "Mugwaddle.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Peekabox",
+      "file": "Peekabox.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Pepperquill",
+      "file": "Pepperquill.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Ponchopuff",
+      "file": "Ponchopuff.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Shellchime",
+      "file": "Shellchime.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Sleighbell",
+      "file": "Sleighbell.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Snoutmint",
+      "file": "Snoutmint.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Snowbamboo",
+      "file": "Snowbamboo.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Snowbundle",
+      "file": "Snowbundle.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Snowflipper",
+      "file": "Snowflipper.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Snowglobe",
+      "file": "Snowglobe.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Snowhoot",
+      "file": "Snowhoot.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Startop",
+      "file": "Startop.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Stockingtail",
+      "file": "Stockingtail.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Tinselfluff",
+      "file": "Tinselfluff.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Tinselpup",
+      "file": "Tinselpup.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Tuxfrost",
+      "file": "Tuxfrost.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Twinkleleg",
+      "file": "Twinkleleg.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Woollywrap",
+      "file": "Woollywrap.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Wreathwing",
+      "file": "Wreathwing.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "Yulegnaw",
+      "file": "Yulegnaw.png",
+      "format": "strip",
+      "frames": 25,
+      "frameWidth": 104,
+      "frameHeight": 104,
+      "fps": 12,
+      "loop": true
     }
   ]
 }

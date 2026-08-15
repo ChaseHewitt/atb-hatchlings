@@ -44,8 +44,33 @@ function rosterFor(theme) {
   const manifestPath = join(dir, "manifest.json");
   if (existsSync(manifestPath)) {
     const parsed = JSON.parse(readFileSync(manifestPath, "utf8"));
-    if (Array.isArray(parsed.creatures) && parsed.creatures.length > 0) {
-      return parsed.creatures;
+    // Accept either shape: "creatures" as written here, or "sprites" as some
+    // sprite generators emit. The id is derived from the name when absent, so
+    // it stays stable across regenerations — a changed id would orphan every
+    // pet already hatched as that creature.
+    const entries = Array.isArray(parsed.creatures)
+      ? parsed.creatures
+      : Array.isArray(parsed.sprites)
+        ? parsed.sprites
+        : [];
+    if (entries.length > 0) {
+      return entries.map((entry) => {
+        const name = String(entry.name ?? basename(entry.file, extname(entry.file)));
+        const isGif = String(entry.file).toLowerCase().endsWith(".gif");
+        const format = entry.format ?? (isGif ? "gif" : "strip");
+        return {
+          id: String(entry.id ?? name).toLowerCase(),
+          name,
+          file: String(entry.file),
+          format,
+          ...(format === "strip"
+            ? {
+                frames: entry.frames ?? parsed.frames ?? STRIP_DEFAULT_FRAMES,
+                fps: entry.fps ?? parsed.fps ?? STRIP_DEFAULT_FPS,
+              }
+            : {}),
+        };
+      });
     }
   }
 
