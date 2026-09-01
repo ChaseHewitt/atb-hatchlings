@@ -5,6 +5,7 @@ import { useSchoolYears } from "./useSchoolYears";
 import { useWorkspace } from "./useWorkspace";
 import { useHatchThreshold } from "./useHatchThreshold";
 import { useHatchlingsTheme } from "./useHatchlingsTheme";
+import { useHatchlingsScope } from "./useHatchlingsScope";
 import { planHatchSpecies, useRoster } from "./roster";
 import { updateReward } from "./updateReward";
 import type { Student } from "./types";
@@ -31,7 +32,8 @@ function WorkspaceDisplay({ workspaceId }: { workspaceId: string }) {
   const hatchAt = useHatchThreshold(workspaceId);
   const spriteTheme = useHatchlingsTheme(workspaceId);
   const roster = useRoster(spriteTheme);
-  const rewardStudents = useRewardStudents(workspaceId, schoolYears.selectedYear?.id ?? null);
+  const scope = useHatchlingsScope(workspaceId);
+  const rewardStudents = useRewardStudents(workspaceId, schoolYears.selectedYear?.id ?? null, scope);
   const [isUpdatingPoints, setIsUpdatingPoints] = useState(false);
   const [pointsError, setPointsError] = useState<string | null>(null);
   const sorted = [...rewardStudents.students].sort((a, b) => a.name.localeCompare(b.name));

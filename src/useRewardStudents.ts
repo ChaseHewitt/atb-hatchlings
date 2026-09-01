@@ -1,12 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import type { DocumentData, QueryDocumentSnapshot, Unsubscribe } from "firebase/firestore";
 import type { Student } from "./types";
+import type { HatchlingsScope } from "./useHatchlingsScope";
 
 interface RosterStudent {
   id: string;
   name: string;
   room: string;
   grade: string;
+  inMorning: boolean;
+  inAfternoon: boolean;
 }
 
 interface RewardState {
@@ -23,7 +26,11 @@ export interface RewardStudentsState {
   rewardsError: string | null;
 }
 
-export function useRewardStudents(workspaceId: string, yearId: string | null): RewardStudentsState {
+export function useRewardStudents(
+  workspaceId: string,
+  yearId: string | null,
+  scope: HatchlingsScope,
+): RewardStudentsState {
   const [roster, setRoster] = useState<RosterStudent[]>([]);
   const [rewards, setRewards] = useState<Map<string, RewardState>>(new Map());
   const [loading, setLoading] = useState(false);
@@ -87,7 +94,7 @@ export function useRewardStudents(workspaceId: string, yearId: string | null): R
     };
   }, [workspaceId, yearId]);
 
-  const students = useMemo(() => roster.map((student) => {
+  const students = useMemo(() => roster.filter((student) => enrolledIn(student, scope)).map((student) => {
     const reward = rewards.get(student.id);
     return {
       ...student,
@@ -96,7 +103,7 @@ export function useRewardStudents(workspaceId: string, yearId: string | null): R
       species: reward?.species ?? null,
       speciesTheme: reward?.speciesTheme ?? null,
     };
-  }), [rewards, roster]);
+  }), [rewards, roster, scope]);
 
   return { students, loading, rosterError, rewardsError };
 }
@@ -114,7 +121,20 @@ function parseRosterStudent(document: QueryDocumentSnapshot<DocumentData>): Rost
     name,
     room: typeof data.roomNumber === "string" ? data.roomNumber : "",
     grade: typeof data.grade === "string" ? data.grade : "",
+    // Defaults match the iOS app's, and the asymmetry is deliberate: student
+    // documents written before the morning/afternoon split carry neither
+    // field, and those students are all afternoon. Defaulting morning to true
+    // instead would put the whole pre-split roster on a morning-only board.
+    inMorning: typeof data.inMorningProgram === "boolean" ? data.inMorningProgram : false,
+    inAfternoon: typeof data.inAfternoonProgram === "boolean" ? data.inAfternoonProgram : true,
   };
+}
+
+/** Mirrors HatchlingsPointsScope.includes(_:) in the iOS app. */
+function enrolledIn(student: RosterStudent, scope: HatchlingsScope): boolean {
+  if (scope === "morning") return student.inMorning;
+  if (scope === "afternoon") return student.inAfternoon;
+  return student.inMorning || student.inAfternoon;
 }
 
 function parseReward(document: QueryDocumentSnapshot<DocumentData>): RewardState {
