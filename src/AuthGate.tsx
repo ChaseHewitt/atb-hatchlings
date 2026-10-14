@@ -4,8 +4,8 @@ import {
   browserLocalPersistence,
   OAuthProvider,
   onAuthStateChanged,
-  sendPasswordResetEmail,
   setPersistence,
+  signInWithCustomToken,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { auth } from "./firebase";
 import { AuthUserContext } from "./AuthContext";
+import { authMessage } from "./authMessage";
 
 export default function AuthGate({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>();
@@ -98,8 +99,12 @@ function Login() {
     setMessage("");
     try {
       await setPersistence(auth, browserLocalPersistence);
-      const email = await resolveEmail(identifier);
-      await signInWithEmailAndPassword(auth, email, password);
+      const typed = identifier.trim();
+      if (typed.includes("@")) {
+        await signInWithEmailAndPassword(auth, typed, password);
+      } else {
+        await signInWithUsername(typed, password);
+      }
     } catch (error) {
       setMessage(authMessage(error));
     } finally {
@@ -145,9 +150,10 @@ function Login() {
     setBusy(true);
     setMessage("");
     try {
-      const email = await resolveEmail(identifier);
-      await sendPasswordResetEmail(auth, email);
-      setMessage("Password reset email sent.");
+      await requestPasswordReset(identifier.trim());
+      // The same answer whether or not an account matches, so this cannot be
+      // used to find out which usernames or emails have one.
+      setMessage("If an account matches, we'll send a password reset link to its email.");
     } catch (error) {
       setMessage(authMessage(error));
     } finally {
@@ -218,41 +224,30 @@ function Login() {
   );
 }
 
-function authMessage(error: unknown): string {
-  if (error instanceof UsernameNotFoundError) return "The username or password is incorrect.";
-  if (!(error instanceof FirebaseError)) return "Sign-in failed. Please try again.";
-  switch (error.code) {
-    case "auth/invalid-credential": return "The username, email, or password is incorrect.";
-    case "auth/invalid-email": return "Enter a valid username or email address.";
-    case "auth/user-disabled": return "This account has been disabled.";
-    case "auth/too-many-requests": return "Too many attempts. Wait a moment and try again.";
-    case "auth/network-request-failed": return "Could not reach Firebase. Check the internet connection.";
-    case "auth/operation-not-allowed":
-      return "Sign in with Apple is not enabled for this project yet. Enable Apple under Firebase Authentication, then try again.";
-    case "auth/popup-blocked":
-      return "Your browser blocked the Apple sign-in window. Allow pop-ups for this site and try again.";
-    case "auth/account-exists-with-different-credential":
-      return "That Apple ID's email already has an account here. Sign in with your username and password instead.";
-    case "auth/unauthorized-domain":
-      return "This domain is not authorised for sign-in. Add it under Firebase Authentication settings.";
-    default: return "Sign-in failed. Please try again.";
-  }
+/**
+ * Usernames are resolved on the server. The index that maps one to an account
+ * is private, so this page never learns the email behind a username: the
+ * function checks the password and hands back a token for the account.
+ */
+async function signInWithUsername(username: string, password: string): Promise<void> {
+  const [{ functions }, { httpsCallable }] = await Promise.all([
+    import("./functions"),
+    import("firebase/functions"),
+  ]);
+  const signIn = httpsCallable<{ username: string; password: string }, { customToken: string }>(
+    functions,
+    "usernameSignIn",
+  );
+  const { data } = await signIn({ username, password });
+  await signInWithCustomToken(auth, data.customToken);
 }
 
-class UsernameNotFoundError extends Error {}
-
-async function resolveEmail(identifier: string): Promise<string> {
-  const normalized = identifier.trim();
-  if (normalized.includes("@")) return normalized;
-  if (!normalized) throw new UsernameNotFoundError();
-
-  const [{ db }, { doc, getDoc }] = await Promise.all([
-    import("./firestore"),
-    import("firebase/firestore"),
+/** For a username or an email alike; the server sends the link to the account's email. */
+async function requestPasswordReset(identifier: string): Promise<void> {
+  const [{ functions }, { httpsCallable }] = await Promise.all([
+    import("./functions"),
+    import("firebase/functions"),
   ]);
-  const username = normalized.toLocaleLowerCase();
-  const snapshot = await getDoc(doc(db, "usernames", username));
-  const email = snapshot.data()?.email;
-  if (typeof email !== "string" || !email.trim()) throw new UsernameNotFoundError();
-  return email.trim();
+  const request = httpsCallable<{ identifier: string }, { requested: boolean }>(functions, "requestPasswordReset");
+  await request({ identifier });
 }

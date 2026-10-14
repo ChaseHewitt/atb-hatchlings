@@ -99,8 +99,17 @@ Rules of the architecture:
    have been removed.
 4. **Auth UI complete:** persistent username-or-email/password and Google
    login, username-aware password reset, and sign-out. The signed-in header
-   displays the workspace username rather than exposing the email. Usernames resolve through
-   the existing `usernames/{lowercasedUsername}` index. Anonymous sign-in is intentionally not offered. Before
+   displays the workspace username rather than exposing the email. A username
+   is resolved on the server: sign-in calls the `usernameSignIn` Cloud Function
+   (us-east4) and signs in with the token it returns, and a reset, for a
+   username or an email, calls `requestPasswordReset`. The page no longer reads
+   the `usernames` index. Both functions
+   require App Check, so the build needs `VITE_FIREBASE_APP_CHECK_SITE_KEY`
+   (a reCAPTCHA Enterprise key that allows this site's domain, registered for
+   this web app under Firebase console → App Check); without it those two say
+   the browser could not be verified, while email and Apple sign-in still
+   work. Deploy this only once the ATB functions are live. `npm test` covers
+   the error messages. Anonymous sign-in is intentionally not offered. Before
    real data, Firestore rules must restrict `rewards` reads to authenticated
    workspace members and writes to staff; `request.auth != null` alone is not
    enough because the Firebase project also enables Anonymous Auth.
